@@ -1,3 +1,7 @@
+import * as dotenv from 'dotenv';
+
+dotenv.config();
+
 import express from "express";
 import bodyParser from "body-parser";
 import mongoose, { mongo } from "mongoose";
@@ -228,7 +232,7 @@ app.listen(3000, () => {
 
 
 try {
-    const conn = await mongoose.connect('mongodb://127.0.0.1:27017/AmeyBhatReactApp',
+    const conn = await mongoose.connect(process.env.BASE_URL,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true
